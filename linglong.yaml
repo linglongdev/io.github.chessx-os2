@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.chessx-os2
+  name: chessx-os2
+  version: 1.5.6.1
+  kind: app
+  description: |
+    A free and open source chess database application
+
+command:
+  - /opt/apps/io.github.chessx-os2/files/bin/chessx
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/TeLLie/chessx-os2.git
+    version: master
+    commit: 851af34ec717a8fbe54f5eb30a959f9e651b5744
+
+build: |
+  cd /project/linglong/sources/chessx-os2.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make -j$(nproc)
+  make install

@@ -1,0 +1,27 @@
+From 65c8909ec981fe0ad30155142507e88675f845b7 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Sat, 14 Sep 2024 16:58:38 +0800
+Subject: [PATCH] install
+
+---
+ chessx.pro | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/chessx.pro b/chessx.pro
+index 8c4ad46..26b1150 100644
+--- a/chessx.pro
++++ b/chessx.pro
+@@ -611,4 +611,10 @@ DISTFILES += \
+   mac_osx/qt_menu.nib \
+   data/lang/readme-lang.txt
+ 
++target.path = $$PREFIX/bin
++desktop.files = unix/chessx.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = data/images/chessx.png
+ 
++INSTALLS += target desktop icons
+-- 
+2.43.4
+
